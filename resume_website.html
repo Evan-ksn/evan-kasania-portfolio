@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Evan Kasania | Data Science & Econometrics</title>
+  <meta name="description" content="Professional resume website for Evan Kasania - Data Science and Econometrics student with experience across data analytics, customer insights, events, tourism and brand representation." />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: rgba(255, 255, 255, 0.08);
+      --panel-strong: rgba(255, 255, 255, 0.12);
+      --text: #f6f7fb;
+      --muted: #aeb7cf;
+      --accent: #65d6ff;
+      --accent-2: #8fffcc;
+      --line: rgba(255, 255, 255, 0.16);
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+      --radius: 24px;
+      --max: 1120px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(101, 214, 255, 0.28), transparent 30%),
+        radial-gradient(circle at 86% 12%, rgba(143, 255, 204, 0.18), transparent 28%),
+        radial-gradient(circle at 50% 92%, rgba(120, 92, 255, 0.2), transparent 32%),
+        var(--bg);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .site-shell {
+      width: min(var(--max), calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(11, 16, 32, 0.72);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      font-size: 1.05rem;
+    }
+
+    .mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #07111e;
+      font-weight: 900;
+      box-shadow: 0 10px 28px rgba(101, 214, 255, 0.24);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .hero {
+      padding: 92px 0 56px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 34px;
+      align-items: stretch;
+    }
+
+    .hero-card, .stats-card, .section-card {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.055));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 46px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card:before {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(101, 214, 255, 0.16);
+      right: -70px;
+      top: -80px;
+      filter: blur(2px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(101, 214, 255, 0.12);
+      color: #c7f4ff;
+      font-weight: 700;
+      font-size: 0.82rem;
+      border: 1px solid rgba(101, 214, 255, 0.2);
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 8vw, 6.2rem);
+      line-height: 0.88;
+      letter-spacing: -0.075em;
+      margin: 0 0 24px;
+    }
+
+    .lead {
+      font-size: clamp(1.05rem, 2vw, 1.28rem);
+      color: var(--muted);
+      max-width: 720px;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-weight: 800;
+      border: 1px solid transparent;
+      transition: transform 0.18s ease, background 0.18s ease, border 0.18s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #07111e;
+    }
+
+    .btn-secondary {
+      border-color: var(--line);
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+    }
+
+    .stats-card {
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100%;
+    }
+
+    .profile-snapshot {
+      display: grid;
+      gap: 16px;
+    }
+
+    .snapshot-row {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    .snapshot-label {
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .snapshot-value { font-size: 1.02rem; font-weight: 750; }
+
+    section { padding: 42px 0; }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1;
+      letter-spacing: -0.06em;
+      margin: 0;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      max-width: 540px;
+      margin: 0;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .section-card {
+      padding: 26px;
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 850;
+      margin: 0 0 8px;
+      letter-spacing: -0.025em;
+    }
+
+    .card-meta {
+      color: var(--accent-2);
+      font-weight: 750;
+      font-size: 0.88rem;
+      margin-bottom: 14px;
+    }
+
+    .card-body {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .pill-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .pill {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid var(--line);
+      color: #d7def1;
+      font-size: 0.88rem;
+      font-weight: 650;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 20px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255,255,255,0.055);
+    }
+
+    .date {
+      color: var(--accent);
+      font-weight: 850;
+      font-size: 0.9rem;
+    }
+
+    .role h3 {
+      margin: 0 0 4px;
+      font-size: 1.2rem;
+      letter-spacing: -0.03em;
+    }
+
+    .role .company {
+      color: #dfe6fa;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    ul.clean {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    ul.clean li { margin: 8px 0; }
+
+    .highlight-card {
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .big-number {
+      font-size: 3rem;
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: -0.08em;
+      color: var(--accent-2);
+      margin-bottom: 12px;
+    }
+
+    .footer {
+      padding: 56px 0 70px;
+      color: var(--muted);
+      text-align: center;
+      border-top: 1px solid var(--line);
+      margin-top: 48px;
+    }
+
+    .footer strong { color: var(--text); }
+
+    @media (max-width: 900px) {
+      .hero, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      .hero { padding-top: 54px; }
+      .hero-card { padding: 30px; }
+      .nav-links { display: none; }
+      .timeline-item { grid-template-columns: 1fr; }
+    }
+
+    @media print {
+      body { background: #fff; color: #111; }
+      .nav, .hero-actions { display: none; }
+      .hero-card, .stats-card, .section-card, .timeline-item {
+        box-shadow: none;
+        border-color: #ddd;
+        background: #fff;
+        color: #111;
+      }
+      .lead, .card-body, ul.clean, .section-subtitle, .snapshot-label, .footer { color: #444; }
+      .pill { border-color: #ddd; color: #111; background: #f6f6f6; }
+      .date, .card-meta, .big-number { color: #0a6b7d; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="site-shell nav-inner">
+      <a class="brand" href="#top" aria-label="Evan Kasania home">
+        <span class="mark">EK</span>
+        <span>Evan Kasania</span>
+      </a>
+      <div class="nav-links" aria-label="Main navigation">
+        <a href="#profile">Profile</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top" class="site-shell">
+    <section class="hero" aria-label="Hero section">
+      <div class="hero-card">
+        <div class="eyebrow">Data Science • Econometrics • Business Insight</div>
+        <h1>Evan<br>Kasania</h1>
+        <p class="lead">
+          Data Science and Econometrics student at Monash University with practical experience across analytics, customer insights, stakeholder communication, events, tourism and brand representation.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Contact Evan</a>
+          <a class="btn btn-secondary" href="#experience">View Experience</a>
+        </div>
+      </div>
+
+      <aside class="stats-card" aria-label="Profile snapshot">
+        <div class="profile-snapshot">
+          <div class="snapshot-row">
+            <div class="snapshot-label">Based in</div>
+            <div class="snapshot-value">Victoria, Australia</div>
+          </div>
+          <div class="snapshot-row">
+            <div class="snapshot-label">Education</div>
+            <div class="snapshot-value">Monash University</div>
+          </div>
+          <div class="snapshot-row">
+            <div class="snapshot-label">Academic focus</div>
+            <div class="snapshot-value">Data Science & Econometrics</div>
+          </div>
+          <div class="snapshot-row">
+            <div class="snapshot-label">Strengths</div>
+            <div class="snapshot-value">Analysis, communication, initiative</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="profile">
+      <div class="section-head">
+        <h2>Profile</h2>
+        <p class="section-subtitle">A professional profile built around analytical problem solving, real-world experience and strong communication.</p>
+      </div>
+      <div class="grid-3">
+        <article class="section-card highlight-card">
+          <div>
+            <div class="big-number">01</div>
+            <h3 class="card-title">Analytical Thinker</h3>
+            <p class="card-body">Comfortable working with data, identifying patterns, structuring insights and turning information into useful recommendations.</p>
+          </div>
+        </article>
+        <article class="section-card highlight-card">
+          <div>
+            <div class="big-number">02</div>
+            <h3 class="card-title">Stakeholder Focused</h3>
+            <p class="card-body">Experience communicating across tourism, hospitality, media, brand, academic and business environments.</p>
+          </div>
+        </article>
+        <article class="section-card highlight-card">
+          <div>
+            <div class="big-number">03</div>
+            <h3 class="card-title">Professional Presence</h3>
+            <p class="card-body">Brand representation and modelling experience have built confidence, presentation and adaptability in client-facing settings.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="section-head">
+        <h2>Experience</h2>
+        <p class="section-subtitle">Work across tourism, analytics, modelling and customer-facing environments.</p>
+      </div>
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="date">Jan 2025 - Present</div>
+          <div class="role">
+            <h3>Assistant Ambassador</h3>
+            <div class="company">Austrian National Tourist Office (ANTO) • Vienna / Remote & Onsite Events</div>
+            <ul class="clean">
+              <li>Supported tourism outreach campaigns, event planning, branding and cultural promotion initiatives.</li>
+              <li>Assisted with audience engagement insights and stakeholder collaboration across hospitality, tourism and media.</li>
+              <li>Built practical experience in communication, coordination, planning and professional representation.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="date">Apr 2025 - Dec 2026</div>
+          <div class="role">
+            <h3>Model</h3>
+            <div class="company">Elite Models Milan • Milan, Italy</div>
+            <ul class="clean">
+              <li>Collaborated on brand campaigns with international companies including YSL, Zara, Diesel and Nike.</li>
+              <li>Developed adaptability, cross-cultural communication and confidence in professional brand environments.</li>
+              <li>Represented organisations with strong presentation, interpersonal skills and professionalism.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-head">
+        <h2>Projects</h2>
+        <p class="section-subtitle">Selected analytics and research work with practical business and performance outcomes.</p>
+      </div>
+      <div class="grid-2">
+        <article class="section-card">
+          <div class="card-meta">Data Analyst Intern • Nov 2025 - Feb 2026</div>
+          <h3 class="card-title">Ganges Products - Customer & Product Analytics</h3>
+          <p class="card-body">Collected, cleaned and structured raw product and customer data to support analysis of a new whey and protein product line. Built the company’s first internal analysis workflow and produced insights that helped identify a new consumer segment.</p>
+          <div class="pill-wrap">
+            <span class="pill">CRM Data</span>
+            <span class="pill">Customer Insights</span>
+            <span class="pill">Product Analytics</span>
+            <span class="pill">Business Improvement</span>
+          </div>
+        </article>
+
+        <article class="section-card">
+          <div class="card-meta">Researcher • Nov 2025 - Feb 2026</div>
+          <h3 class="card-title">Monash University - Athlete Rehabilitation Research</h3>
+          <p class="card-body">Contributed to an on-campus research study analysing athlete training injury rehabilitation. Supported the collection and structuring of training and recovery data to explore rehabilitation effectiveness and injury prevention.</p>
+          <div class="pill-wrap">
+            <span class="pill">Research</span>
+            <span class="pill">Performance Data</span>
+            <span class="pill">Recovery Patterns</span>
+            <span class="pill">Data Structuring</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-head">
+        <h2>Skills</h2>
+        <p class="section-subtitle">Technical, analytical and professional strengths aligned to data, business and communication roles.</p>
+      </div>
+      <div class="section-card">
+        <div class="pill-wrap" aria-label="Skills list">
+          <span class="pill">Python</span>
+          <span class="pill">R</span>
+          <span class="pill">SQL</span>
+          <span class="pill">Excel</span>
+          <span class="pill">Machine Learning</span>
+          <span class="pill">Statistical Analysis</span>
+          <span class="pill">Data Cleaning</span>
+          <span class="pill">Data Visualisation</span>
+          <span class="pill">Insight Communication</span>
+          <span class="pill">Stakeholder Interaction</span>
+          <span class="pill">Public Speaking</span>
+          <span class="pill">Customer Insights</span>
+          <span class="pill">Event Support</span>
+          <span class="pill">Brand Representation</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="section-head">
+        <h2>Education</h2>
+        <p class="section-subtitle">Academic foundation in data science, analytical thinking and econometric modelling.</p>
+      </div>
+      <div class="section-card">
+        <h3 class="card-title">Monash University - Melbourne, Australia</h3>
+        <div class="card-meta">Bachelor of Computer Science - Data Science & Econometrics • Distinction Academic Record</div>
+        <p class="card-body">Relevant coursework includes Data Analysis, Statistical Modelling, Machine Learning, Algorithms & Data Structures, and Econometrics.</p>
+      </div>
+    </section>
+
+    <section id="achievements">
+      <div class="section-head">
+        <h2>Achievements</h2>
+        <p class="section-subtitle">Evidence of leadership, discipline and high-performance commitment.</p>
+      </div>
+      <div class="grid-2">
+        <article class="section-card">
+          <h3 class="card-title">Monash University Varsity Football Player</h3>
+          <p class="card-body">Represented Monash University at varsity level, demonstrating teamwork, discipline and performance commitment alongside academic studies.</p>
+        </article>
+        <article class="section-card">
+          <h3 class="card-title">School Valedictorian</h3>
+          <p class="card-body">Awarded for overall excellence across academics, leadership, sports participation and contribution to the school community.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <p class="section-subtitle">Open to internships, analyst roles, business roles, event support and early-career opportunities.</p>
+      </div>
+      <div class="section-card">
+        <div class="grid-3">
+          <div>
+            <div class="snapshot-label">Location</div>
+            <div class="snapshot-value">VIC, Australia</div>
+          </div>
+          <div>
+            <div class="snapshot-label">Phone</div>
+            <div class="snapshot-value"><a href="tel:+61435409947">+61 435 409 947</a></div>
+          </div>
+          <div>
+            <div class="snapshot-label">Email</div>
+            <div class="snapshot-value"><a href="mailto:evan.kasania@gmail.com">evan.kasania@gmail.com</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="site-shell">
+      <strong>Evan Kasania</strong><br />
+      Data Science & Econometrics • Analytics • Customer Insights • Communication
+    </div>
+  </footer>
+</body>
+</html>
